@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Anime>
+@{
+    ViewData["Title"] = "AnimeList";
+    Layout = "~/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<h2>AnimeList</h2>
+<br/>
+
+<table class="table  table-bordered ">
+    <tr>
+        <th>#</th>
+        <th>Anime Name</th>
+        <th>Description</th>
+        <th>Episode</th>
+        <th>Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AnimeID</th>
+            <th>@item.AnimeName</th>
+            <th>@item.AnimeDescription</th>
+            <th>@item.AnimeEpisode</th>
+            <th>@item.AnimeStatus</th>
+    
+            <td><a href="/AdminPage/AnimeDelete/@item.AnimeID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/AdminPage/AnimeUpdate/@item.AnimeID" class="btn btn-warning">Update</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/AdminPage/AnimeAdd" class="btn btn-primary">Create a new anime.</a>
+
